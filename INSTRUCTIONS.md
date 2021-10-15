@@ -42,7 +42,7 @@ Please include a `database.sql` text file in your repo that includes all of your
 
 ## Stretch Goals
 
-For each of your strech goals, you will be practicing git branching. Please refer to the branching notes for a reminder on commands. Each branch will be merged into master using `--no-ff`. This will allow us to see that you branched your feature when you turn in your code.
+For each of your stretch goals, you will be practicing git branching. Please refer to the branching notes for a reminder on commands. Each branch will be merged into master using `--no-ff`. This will allow us to see that you branched your feature when you turn in your code.
 
 - `feature-styling-bootstrap` 
 
@@ -58,7 +58,7 @@ For each of your strech goals, you will be practicing git branching. Please refe
 
 - `feature-ordering-task-query` 
 
-    - [ ]  Research [Query Params](https://expressjs.com/en/api.html#req.query) to have the request reverse the order of the returned todos. 
+    - [ ]  Research [Query Params](https://expressjs.com/en/api.html#req.query) to have the request reverse the order of the returned to dos. 
     
 - `feature-time-completed` 
 
