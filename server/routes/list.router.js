@@ -49,6 +49,8 @@ router.post(`/`, (req, res) => {
         });
 });
 
+
+// DELETE request
 router.delete(`/:id`, (req, res) => {
     let id = req.params.id;
     console.log(`ID to delete: `, id);
@@ -69,7 +71,33 @@ router.delete(`/:id`, (req, res) => {
             console.log(`ERROR! Unable to delete $`, id, ` from db.`);
             res.sendStatus(500);
         });
+});
+
+
+// PUT request
+
+router.put(`/:id`, (req, res) => {
+    let id = req.params.id;
     
+    console.log(`ID #`, id, `to be marked complete.`);
+
+    let queryText = `
+        UPDATE "toDoList"
+        SET "completeStatus" = true
+        WHERE "id" = $1;
+    `;
+
+    let values = [id];
+
+    pool.query(queryText, values)
+        .then((result) => {
+            console.log(`ID #`, id, `successfully updated on db!`);
+            res.sendStatus(201);
+        })
+        .catch((error) => {
+            console.log(`ERROR! Unable to update on db!`);
+            res.sendStatus(500);
+        });
 });
 
 

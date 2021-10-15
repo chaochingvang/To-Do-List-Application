@@ -18,7 +18,7 @@
     [x] connect to server.js
 [x] submit btn POST request
 [x] GET request for render
-[] delete btn DELETE request
+[x] delete btn DELETE request
 [] complete btn PUT request to change complete status
 
 
@@ -27,7 +27,7 @@
 [x] create template database with columns
 [x] Store task in database `weekend-to-do-app`
 [] Update complete status in database
-[] Delete should remove from database
+[x] Delete should remove from database
 
 
 
