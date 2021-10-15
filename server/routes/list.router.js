@@ -47,7 +47,33 @@ router.post(`/`, (req, res) => {
             console.log(`Error! Unable to add new task to db.`);
             res.sendStatus(500);
         });
-
 });
+
+router.delete(`/:id`, (req, res) => {
+    let id = req.params.id;
+    console.log(`ID to delete: `, id);
+
+    let queryText = `
+        DELETE FROM "toDoList"
+        WHERE "id" = $1;
+    `;
+
+    let values = [id];
+
+    pool.query(queryText, values)
+        .then((result) => {
+            console.log(`ID #`, id, ` deleted successfully from db!`);
+            res.sendStatus(201);
+        })
+        .catch((error) => {
+            console.log(`ERROR! Unable to delete $`, id, ` from db.`);
+            res.sendStatus(500);
+        });
+    
+});
+
+
+
+
 
 module.exports = router;
