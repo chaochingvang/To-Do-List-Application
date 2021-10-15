@@ -1,8 +1,8 @@
 ## Front End
 [] Create basic HTML UI
     [] Allows user to create a task
-        [] user input field
-        [] submit btn
+        [x] user input field
+        [x] submit btn
             [] client POST
     [] Have Complete or Delete option
         [] Complete: have visual representation so change css, strike-through text
