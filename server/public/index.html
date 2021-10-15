@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekend Project - To Do List</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="./vendors/jquery-3.6.0.min.js"></script>
+    <script src="./scripts/client.js"></script>
+</head>
+<body>
+    <header>
+        <h1>To-Do-List</h1>
+    </header>
+
+    <div id="inputContainer">
+        <table>
+            <tr>
+                <td><h3>Enter task:</h3></td>
+                <td><input type="text" placeholder="task description"></td>
+                <td><button id="submitBtn">Submit</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="displayDiv">
+        <table>
+            <thead>
+                <tr>
+                    <td>Task</td>
+                    <td><!-- date completed --></td>
+                    <td><!-- buttons column --></td>
+                </tr>
+            </thead>
+            <tbody id="taskList">
+                <!-- list of task -->
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

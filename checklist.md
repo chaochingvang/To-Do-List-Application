@@ -19,7 +19,7 @@
 [x] submit btn POST request
 [x] GET request for render
 [x] delete btn DELETE request
-[] complete btn PUT request to change complete status
+[x] complete btn PUT request to change complete status
 
 
 
