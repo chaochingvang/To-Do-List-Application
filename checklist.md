@@ -16,8 +16,8 @@
 [x] connect to database
 [x] create route to /list
     [x] connect to server.js
-[] submit btn POST request
-[] GET request for render
+[x] submit btn POST request
+[x] GET request for render
 [] delete btn DELETE request
 [] complete btn PUT request to change complete status
 
@@ -25,7 +25,7 @@
 
 ## Database
 [x] create template database with columns
-[] Store task in database `weekend-to-do-app`
+[x] Store task in database `weekend-to-do-app`
 [] Update complete status in database
 [] Delete should remove from database
 

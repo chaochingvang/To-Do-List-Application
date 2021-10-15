@@ -5,6 +5,8 @@ const pool = require(`../modules/pool.js`);
 
 console.log(`IN list.router.js`);
 
+
+// GET REQUEST
 router.get(`/`, (req, res) => {
     console.log(`in /list router get request`);
 
@@ -23,5 +25,29 @@ router.get(`/`, (req, res) => {
         });
 });
 
+// POST REQUEST
+router.post(`/`, (req, res) => {
+    console.log(`in /list router put request`);
+    let newTask = req.body;
+
+
+    let queryText = `
+        INSERT INTO "toDoList" ("task")
+        VALUES ($1);
+    `;
+
+    let values = [newTask.task];
+
+    pool.query(queryText, values)
+        .then((result) => {
+            console.log(`Added new task to db!`);
+            res.sendStatus(201);
+        })
+        .catch((error) => {
+            console.log(`Error! Unable to add new task to db.`);
+            res.sendStatus(500);
+        });
+
+});
 
 module.exports = router;
