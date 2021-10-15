@@ -12,8 +12,10 @@
     [] client GET on load to always see list
 
 ## Back End
-[] setup server
-[] connect to database
+[x] setup server
+[x] connect to database
+[x] create route to /list
+    [x] connect to server.js
 [] submit btn POST request
 [] GET request for render
 [] delete btn DELETE request
