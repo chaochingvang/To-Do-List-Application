@@ -22,6 +22,7 @@
 
 
 ## Database
+[x] create template database with columns
 [] Store task in database `weekend-to-do-app`
 [] Update complete status in database
 [] Delete should remove from database
