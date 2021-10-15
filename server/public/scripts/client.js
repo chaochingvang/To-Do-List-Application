@@ -5,16 +5,28 @@ $(jqReady);
 function jqReady() {
     console.log(`in jq`);
     getList();
-
+    $(`#taskList`).on(`click`, `.completeBtn`, markComplete);
+    $(`#taskList`).on(`click`, `.deleteBtn`, deleteTask);
+    $(`#submitBtn`).on(`click`, addTask);
 
 
 
 }
 
+function markComplete() {
+    console.log(`in markComplete fx`);
+}
+
+function deleteTask() {
+    console.log(`in deleteTask fx`);
+}
+
+function addTask() {
+    console.log(`in addTask fx`);
+}
+
 function renderToDOM(list) {
     $(`#taskList`).empty;
-
-
 
     for (let item of list) {
         let elToAppend = $(`
