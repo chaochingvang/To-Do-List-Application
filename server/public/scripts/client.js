@@ -94,15 +94,15 @@ function renderToDOM(list) {
 
 
         let elToAppend = $(`
-            <tr>
+            <tr class="${item.completeStatus ? `taskCompleted` : ``}">
                 <td class="${item.completeStatus ? `taskCompleted` : ``}">${item.task}</td>
-                <td>${item.dateCompleted === null ? `` : dateCompleted}</td>
-                <td>
-                    ${item.completeStatus ? `` :
+                <td class="dateCompletedColumn">${item.dateCompleted === null ? `` : dateCompleted}</td>
+                <td class="completeBtnColumn">
+                    ${item.completeStatus ? `Completed!` :
                         `<input type="text" placeholder="mm/dd/yyyy" class="dateCompletedInput" required><br />
                         <button class="completeBtn">Mark as Complete</button>`}
                 </td>
-                <td>
+                <td class="deleteBtnColumn">
                     <button class="deleteBtn">Delete Task</button>
                 </td>
             </tr>
