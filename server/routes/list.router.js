@@ -11,7 +11,8 @@ router.get(`/`, (req, res) => {
     console.log(`in /list router get request`);
 
     let queryText = `
-        SELECT * FROM "toDoList";
+        SELECT * FROM "toDoList"
+        ORDER BY "task";
     `;
 
     pool.query(queryText)
@@ -32,8 +33,8 @@ router.post(`/`, (req, res) => {
 
 
     let queryText = `
-        INSERT INTO "toDoList" ("task")
-        VALUES ($1);
+        INSERT INTO "toDoList" ("task", "completeStatus")
+        VALUES ($1, false);
     `;
 
     let values = [newTask.task];

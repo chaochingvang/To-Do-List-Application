@@ -15,8 +15,22 @@ function jqReady() {
 
 function markComplete() {
     console.log(`in markComplete fx`);
+    let id = $(this).closest(`tr`).data(`id`);
+    //console.log(id);
 
-    $(this).parent().siblings(`.taskCell`).addClass(`taskCompleted`);
+
+    $.ajax({
+        method: `PUT`,
+        url: `/list/${id}`
+    }).then(function (response) {
+        console.log(`Successfully marked as complete!`);
+        getList();
+
+    }).catch(function (response) {
+        console.log(`ERROR! Unable to mark as complete!`);
+    })
+
+    //$(this).parent().siblings(`.taskCell`).addClass(`taskCompleted`);
 
 
 }
@@ -61,13 +75,14 @@ function addTask() {
 function renderToDOM(list) {
     $(`#taskList`).empty();
 
+    
     for (let item of list) {
         let elToAppend = $(`
             <tr>
-                <td class="taskCell">${item.task}</td>
+                <td class="${item.completeStatus ? `taskCompleted` : ``}">${item.task}</td>
                 <td></td>
                 <td>
-                    <button class="completeBtn">Mark as Complete</button>
+                    ${item.completeStatus ? `` : `<button class="completeBtn">Mark as Complete</button>`}
                 </td>
                 <td>
                     <button class="deleteBtn">Delete Task</button>
@@ -76,9 +91,18 @@ function renderToDOM(list) {
         `);
 
         elToAppend.data(`id`, item.id);
+        elToAppend.data(`completeStatus`, item.completeStatus);
 
         $(`#taskList`).append(elToAppend);
+
+        if (item.completeStatus === true) {
+            $(`#completeBtnContainer`).empty();
+        }
     }
+
+    
+
+    
 }
 
 function getList() {
