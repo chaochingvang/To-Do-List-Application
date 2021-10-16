@@ -16,23 +16,28 @@ function jqReady() {
 function markComplete() {
     console.log(`in markComplete fx`);
     let id = $(this).closest(`tr`).data(`id`);
-    //console.log(id);
 
+    let date = ($(this).siblings(`.dateCompletedInput`).val());
+    console.log(date.length);
+
+    if (date.length < 10) {
+        alert(`Please enter date as mm/dd/yyyy or yyyy/mm/dd`);
+        return;
+    }
 
     $.ajax({
         method: `PUT`,
-        url: `/list/${id}`
+        url: `/list/${id}`,
+        data: {
+            dateCompleted: date
+        }
     }).then(function (response) {
         console.log(`Successfully marked as complete!`);
         getList();
 
     }).catch(function (response) {
-        console.log(`ERROR! Unable to mark as complete!`);
+        alert(`ERROR! Please enter date as mm/dd/yyyy or yyyy/mm/dd`);
     })
-
-    //$(this).parent().siblings(`.taskCell`).addClass(`taskCompleted`);
-
-
 }
 
 function deleteTask() {
@@ -74,15 +79,28 @@ function addTask() {
 
 function renderToDOM(list) {
     $(`#taskList`).empty();
-
     
     for (let item of list) {
+
+        let dateFromDb, year, month, date, dateCompleted;
+
+        if (item.dateCompleted != null) {
+            dateFromDb = item.dateCompleted.substr(0, 10);
+            year = dateFromDb.substr(0, 4);
+            month = dateFromDb.substr(5, 2);
+            date = dateFromDb.substr(8, 2);
+            dateCompleted = `${month}-${date}-${year}`;
+        }
+
+
         let elToAppend = $(`
             <tr>
                 <td class="${item.completeStatus ? `taskCompleted` : ``}">${item.task}</td>
-                <td></td>
+                <td>${item.dateCompleted === null ? `` : dateCompleted}</td>
                 <td>
-                    ${item.completeStatus ? `` : `<button class="completeBtn">Mark as Complete</button>`}
+                    ${item.completeStatus ? `` :
+                        `<input type="text" placeholder="mm/dd/yyyy" class="dateCompletedInput" required><br />
+                        <button class="completeBtn">Mark as Complete</button>`}
                 </td>
                 <td>
                     <button class="deleteBtn">Delete Task</button>

@@ -79,16 +79,19 @@ router.delete(`/:id`, (req, res) => {
 
 router.put(`/:id`, (req, res) => {
     let id = req.params.id;
+    let dateCompleted = req.body.dateCompleted;
+    console.log(dateCompleted);
     
     console.log(`ID #`, id, `to be marked complete.`);
 
     let queryText = `
         UPDATE "toDoList"
-        SET "completeStatus" = true
-        WHERE "id" = $1;
+        SET "completeStatus" = TRUE,
+            "dateCompleted" = $1
+        WHERE id= $2;
     `;
 
-    let values = [id];
+    let values = [dateCompleted, id];
 
     pool.query(queryText, values)
         .then((result) => {
