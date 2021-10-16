@@ -3,5 +3,6 @@
 }
 
 .taskCompleted {
-    background-color: red;
+    text-decoration: line-through;
+    color: grey;
 }

@@ -1,14 +1,14 @@
 ## Front End
-[] Create basic HTML UI
-    [] Allows user to create a task
+[x] Create basic HTML UI
+    [x] Allows user to create a task
         [x] user input field
         [x] submit btn
             [x] client POST
-    [] Have Complete or Delete option
-        [] Complete: have visual representation so change css, strike-through text
-            [] client PUT
-        [] Remove button if completed
-            [] client DELETE
+    [x] Have Complete or Delete option
+        [x] Complete: have visual representation so change css, strike-through text
+            [x] client PUT
+        [x] Delete task when clicked deleteBtn
+            [x] client DELETE
     [x] client GET on load to always see list
 
 ## Back End
@@ -26,7 +26,7 @@
 ## Database
 [x] create template database with columns
 [x] Store task in database `weekend-to-do-app`
-[] Update complete status in database
+[x] Update complete status in database
 [x] Delete should remove from database
 
 

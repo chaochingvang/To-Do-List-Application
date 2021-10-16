@@ -94,15 +94,7 @@ function renderToDOM(list) {
         elToAppend.data(`completeStatus`, item.completeStatus);
 
         $(`#taskList`).append(elToAppend);
-
-        if (item.completeStatus === true) {
-            $(`#completeBtnContainer`).empty();
-        }
     }
-
-    
-
-    
 }
 
 function getList() {
