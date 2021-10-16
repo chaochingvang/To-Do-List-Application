@@ -3,13 +3,13 @@
     [] Allows user to create a task
         [x] user input field
         [x] submit btn
-            [] client POST
+            [x] client POST
     [] Have Complete or Delete option
         [] Complete: have visual representation so change css, strike-through text
             [] client PUT
         [] Remove button if completed
             [] client DELETE
-    [] client GET on load to always see list
+    [x] client GET on load to always see list
 
 ## Back End
 [x] setup server

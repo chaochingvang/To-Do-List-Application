@@ -19,6 +19,12 @@ function markComplete() {
 
 function deleteTask() {
     console.log(`in deleteTask fx`);
+
+    let idToDelete = $(this).closest(`tr`).data();
+
+    console.log(idToDelete);
+
+
 }
 
 function addTask() {
@@ -56,7 +62,7 @@ function renderToDOM(list) {
             </tr>
         `);
 
-        $(elToAppend).data(`id`, list.id);
+        elToAppend.data(`id`, item.id);
 
         $(`#taskList`).append(elToAppend);
     }
