@@ -17,20 +17,26 @@ function markComplete() {
     console.log(`in markComplete fx`);
     let id = $(this).closest(`tr`).data(`id`);
 
-    console.log($(this).closest(`.dateCompletedInput`).val());
+    let date = ($(this).siblings(`.dateCompletedInput`).val());
+    console.log(date.length);
+
+    if (date.length < 10) {
+        alert(`Please enter date as mm/dd/yyyy or yyyy/mm/dd`);
+        return;
+    }
 
     $.ajax({
         method: `PUT`,
         url: `/list/${id}`,
         data: {
-            dateCompleted: $(`.dateCompletedInput`).val()
+            dateCompleted: date
         }
     }).then(function (response) {
         console.log(`Successfully marked as complete!`);
         getList();
 
     }).catch(function (response) {
-        console.log(`ERROR! Unable to mark as complete!`);
+        alert(`ERROR! Please enter date as mm/dd/yyyy or yyyy/mm/dd`);
     })
 }
 
@@ -78,7 +84,6 @@ function renderToDOM(list) {
 
         let dateFromDb, year, month, date, dateCompleted;
 
-        
         if (item.dateCompleted != null) {
             dateFromDb = item.dateCompleted.substr(0, 10);
             year = dateFromDb.substr(0, 4);
