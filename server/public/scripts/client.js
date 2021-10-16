@@ -15,6 +15,10 @@ function jqReady() {
 
 function markComplete() {
     console.log(`in markComplete fx`);
+
+    $(this).parent().siblings(`.taskCell`).addClass(`taskCompleted`);
+
+
 }
 
 function deleteTask() {
@@ -60,7 +64,7 @@ function renderToDOM(list) {
     for (let item of list) {
         let elToAppend = $(`
             <tr>
-                <td>${item.task}</td>
+                <td class="taskCell">${item.task}</td>
                 <td></td>
                 <td>
                     <button class="completeBtn">Mark as Complete</button>
