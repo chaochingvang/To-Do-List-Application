@@ -40,6 +40,6 @@
     [] delete confirmation popup?
 [] `feature-ordering-task-query`
     [] query params to have request reverse order of to do list
-[] `feature-time-completed`
-    [] add date input when complete btn click
-    [] display user friendly date on front end
+[x] `feature-time-completed`
+    [x] add date input when complete btn click
+    [x] display user friendly date on front end

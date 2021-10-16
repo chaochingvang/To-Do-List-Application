@@ -12,7 +12,8 @@ router.get(`/`, (req, res) => {
 
     let queryText = `
         SELECT * FROM "toDoList"
-        ORDER BY "task";
+        ORDER BY "dateCompleted" DESC,
+                "task";
     `;
 
     pool.query(queryText)
