@@ -23,10 +23,24 @@ function deleteTask() {
 
 function addTask() {
     console.log(`in addTask fx`);
+
+    $.ajax({
+        method: `POST`,
+        url: `/list`,
+        data: {
+            task: $(`#taskInput`).val()
+        }
+    }).then(function (response) {
+        console.log(`Successfully added new quote!`);
+        getList();
+        $(`#taskInput`).val(``);
+    }).catch(function (response) {
+        console.log(`ERROR! Unable to add new quote.`);
+    });
 }
 
 function renderToDOM(list) {
-    $(`#taskList`).empty;
+    $(`#taskList`).empty();
 
     for (let item of list) {
         let elToAppend = $(`
