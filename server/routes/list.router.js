@@ -65,7 +65,7 @@ router.delete(`/:id`, (req, res) => {
     pool.query(queryText, values)
         .then((result) => {
             console.log(`ID #`, id, ` deleted successfully from db!`);
-            res.sendStatus(201);
+            res.sendStatus(204);
         })
         .catch((error) => {
             console.log(`ERROR! Unable to delete $`, id, ` from db.`);

@@ -20,9 +20,18 @@ function markComplete() {
 function deleteTask() {
     console.log(`in deleteTask fx`);
 
-    let idToDelete = $(this).closest(`tr`).data();
-
+    let idToDelete = $(this).closest(`tr`).data(`id`);
     console.log(idToDelete);
+
+    $.ajax({
+        method: `DELETE`,
+        url: `/list/${idToDelete}`
+    }).then(function (response) {
+        console.log(`Successfully deleted ID # `, idToDelete);
+        getList();
+    }).catch(function (response) {
+        console.log(`ERROR! Unable to delete!`);
+    });
 
 
 }
