@@ -1,8 +1,49 @@
-#inputContainer {
-    display: inline-flex;
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
+
+h1 {
+    padding: 20px;
+    text-align: center;
+    background: linear-gradient(-45deg, #D3D3D3, #BDBDBD, #9E9E9E, #7D7D7D, #696969);
+	background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    font-size: 5vw;
+}
+
+
 
 .taskCompleted {
     text-decoration: line-through;
-    color: grey;
+    background-color: lightgray;
+}
+
+.subText {
+    font-size: smaller;
+    opacity: 50%;
+}
+
+.dateCompletedColumn, .completeBtnColumn, .deleteBtnColumn {
+    text-align: center;
+}
+
+#inputContainer {
+    
+    padding: 20px 10px;
+}
+
+body {
+    font-family: papyrus;
+}
+
+.dateCompletedInput {
+    text-align: center;
 }
