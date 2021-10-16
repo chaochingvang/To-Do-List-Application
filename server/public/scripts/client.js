@@ -16,12 +16,15 @@ function jqReady() {
 function markComplete() {
     console.log(`in markComplete fx`);
     let id = $(this).closest(`tr`).data(`id`);
-    //console.log(id);
 
+    console.log($(this).closest(`.dateCompletedInput`).val());
 
     $.ajax({
         method: `PUT`,
-        url: `/list/${id}`
+        url: `/list/${id}`,
+        data: {
+            dateCompleted: $(`.dateCompletedInput`).val()
+        }
     }).then(function (response) {
         console.log(`Successfully marked as complete!`);
         getList();
@@ -29,10 +32,6 @@ function markComplete() {
     }).catch(function (response) {
         console.log(`ERROR! Unable to mark as complete!`);
     })
-
-    //$(this).parent().siblings(`.taskCell`).addClass(`taskCompleted`);
-
-
 }
 
 function deleteTask() {
@@ -74,7 +73,6 @@ function addTask() {
 
 function renderToDOM(list) {
     $(`#taskList`).empty();
-
     
     for (let item of list) {
         let elToAppend = $(`
@@ -82,7 +80,9 @@ function renderToDOM(list) {
                 <td class="${item.completeStatus ? `taskCompleted` : ``}">${item.task}</td>
                 <td></td>
                 <td>
-                    ${item.completeStatus ? `` : `<button class="completeBtn">Mark as Complete</button>`}
+                    ${item.completeStatus ? `` :
+                        `<input type="text" placeholder="mm/dd/yyyy" class="dateCompletedInput" required><br />
+                        <button class="completeBtn">Mark as Complete</button>`}
                 </td>
                 <td>
                     <button class="deleteBtn">Delete Task</button>
