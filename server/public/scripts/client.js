@@ -75,10 +75,23 @@ function renderToDOM(list) {
     $(`#taskList`).empty();
     
     for (let item of list) {
+
+        let dateFromDb, year, month, date, dateCompleted;
+
+        
+        if (item.dateCompleted != null) {
+            dateFromDb = item.dateCompleted.substr(0, 10);
+            year = dateFromDb.substr(0, 4);
+            month = dateFromDb.substr(5, 2);
+            date = dateFromDb.substr(8, 2);
+            dateCompleted = `${month}-${date}-${year}`;
+        }
+
+
         let elToAppend = $(`
             <tr>
                 <td class="${item.completeStatus ? `taskCompleted` : ``}">${item.task}</td>
-                <td></td>
+                <td>${item.dateCompleted === null ? `` : dateCompleted}</td>
                 <td>
                     ${item.completeStatus ? `` :
                         `<input type="text" placeholder="mm/dd/yyyy" class="dateCompletedInput" required><br />
