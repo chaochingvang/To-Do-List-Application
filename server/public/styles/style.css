@@ -19,9 +19,19 @@ h1 {
     font-size: 5vw;
 }
 
+.taskListHeading {
+    text-align: left;
+    vertical-align: middle;
+}
 
+.cookie {
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+}
 
 .taskCompleted {
+    color: rgba(128, 128, 128, 0.803);
     text-decoration: line-through;
     background-color: lightgray;
 }
@@ -33,6 +43,13 @@ h1 {
 
 .dateCompletedColumn, .completeBtnColumn, .deleteBtnColumn {
     text-align: center;
+    vertical-align: middle;
+    color: black;
+}
+
+.taskColumn {
+    vertical-align: middle;
+    color: black;
 }
 
 #inputContainer {

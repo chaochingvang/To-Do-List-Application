@@ -102,7 +102,7 @@ function renderToDOM(list) {
 
         let elToAppend = $(`
             <tr class="${item.completeStatus ? `taskCompleted` : ``}">
-                <td class="${item.completeStatus ? `taskCompleted` : ``}">${item.task}</td>
+                <td class="taskColumn ">${item.task}</td>
                 <td class="dateCompletedColumn">${item.dateCompleted === null ? `` : dateCompleted}</td>
                 <td class="completeBtnColumn">
                     ${item.completeStatus ? `Completed!` :

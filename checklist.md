@@ -36,8 +36,8 @@
     [x] buttons
     [x] input fields 
     [x] responsive to difference screen sizes
-[] `feature-confirm-delete`
-    [] delete confirmation popup?
+[x] `feature-confirm-delete`
+    [x] delete confirmation popup?
 [] `feature-ordering-task-query`
     [] query params to have request reverse order of to do list
 [x] `feature-time-completed`
