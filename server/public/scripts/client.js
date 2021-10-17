@@ -46,15 +46,22 @@ function deleteTask() {
     let idToDelete = $(this).closest(`tr`).data(`id`);
     console.log(idToDelete);
 
-    $.ajax({
-        method: `DELETE`,
-        url: `/list/${idToDelete}`
-    }).then(function (response) {
-        console.log(`Successfully deleted ID # `, idToDelete);
-        getList();
-    }).catch(function (response) {
-        console.log(`ERROR! Unable to delete!`);
-    });
+    let confirmDelete = confirm(`Are you sure you want to delete this task?`);
+    
+    if (confirmDelete) {
+        $.ajax({
+            method: `DELETE`,
+            url: `/list/${idToDelete}`
+        }).then(function (response) {
+            console.log(`Successfully deleted ID # `, idToDelete);
+            getList();
+        }).catch(function (response) {
+            console.log(`ERROR! Unable to delete!`);
+        });
+    }
+    else {
+        return;
+    }
 
 
 }
