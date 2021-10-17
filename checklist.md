@@ -32,10 +32,10 @@
 
 
 ## STRETCH w/ git branching
-[] `feature-styling-bootstrap`
-    [] buttons
-    [] input fields 
-    [] responsive to difference screen sizes
+[x] `feature-styling-bootstrap`
+    [x] buttons
+    [x] input fields 
+    [x] responsive to difference screen sizes
 [] `feature-confirm-delete`
     [] delete confirmation popup?
 [] `feature-ordering-task-query`
